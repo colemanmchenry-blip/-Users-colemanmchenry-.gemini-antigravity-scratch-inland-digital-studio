@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-page: #fafaf8;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f3f3ef;
+  --text-primary: #131614;
+  --text-secondary: #4e5450;
+  --text-muted: #6b726d;
+  --border-subtle: #e5e5df;
+  --border-strong: #cfcfc7;
+  --accent-primary: #14532d;
+  --accent-primary-hover: #166534;
+  --accent-soft: #ecfdf5;
+  --accent-text: #14532d;
+  --ring-focus: #15803d;
+}
+
+.dark {
+  --bg-page: #0a0d0b;
+  --bg-surface: #111613;
+  --bg-subtle: #171d19;
+  --text-primary: #f3f5f3;
+  --text-secondary: #a8b0aa;
+  --text-muted: #7c857e;
+  --border-subtle: #232b26;
+  --border-strong: #323d36;
+  --accent-primary: #34d399;
+  --accent-primary-hover: #6ee7b7;
+  --accent-soft: rgba(16, 185, 129, 0.12);
+  --accent-text: #6ee7b7;
+  --ring-focus: #34d399;
+}
+
+@theme inline {
+  --color-background: var(--bg-page);
+  --color-foreground: var(--text-primary);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring-focus);
+  outline-offset: 2px;
+}
